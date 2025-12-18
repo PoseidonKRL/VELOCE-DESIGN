@@ -57,7 +57,7 @@ const About: React.FC = () => {
 
             {/* Content Column */}
             <div className="p-8 md:p-16 lg:p-20 flex flex-col justify-center">
-              <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em] mb-6">Expertise</span>
+              <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em] mb-6">{t.common.expertiseLabel}</span>
               <motion.h2 
                 className="font-display text-4xl md:text-6xl font-extrabold tracking-tighter mb-8 leading-[0.95]"
               >

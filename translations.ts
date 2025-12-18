@@ -4,7 +4,24 @@ import { Language } from './types';
 export const TRANSLATIONS = {
   en: {
     nav: {
-      letsTalk: "Place an Order",
+      letsTalk: "Order Now",
+      work: "Work",
+      about: "The Chef",
+      contact: "Contact"
+    },
+    common: {
+      secretSauce: "The Secret Sauce",
+      expertiseLabel: "Expertise",
+      motionArt: "Motion Art",
+      premiumVisuals: "Premium Visuals",
+      est: "EST. 2024 • Gastronomic Branding",
+      exploreMenu: "Explore the menu \nof projects",
+      juiciness: "Juiciness",
+      design: "Design",
+      conversion: "Conversion",
+      appetiteAppeal: "Appetite Appeal",
+      branding: "Branding",
+      digitalMenu: "Digital Menu"
     },
     hero: {
       titleLine1: "Designs",
@@ -12,9 +29,15 @@ export const TRANSLATIONS = {
       titleSpan: "craving.",
       description: "Specialist in Appetite Appeal posts and digital menus for food businesses. I transform pixels into juiciness to turn your followers into hungry customers.",
       viewProjects: "See the Menu",
-      downloadCv: "My Services"
+      definitionTitle: "What is it?",
+      definitionText: "Appetite Appeal is the science of transforming a simple photo into an immediate trigger for desire, converting visual attention into real profit."
+    },
+    floating: {
+      titleLine1: "We don't just sell art,",
+      titleLine2: "we sell hunger at first sight."
     },
     work: {
+      sectionLabel: "Our Menu",
       title: "Fresh off the Grill",
       subtitle: "A selection of arts designed to cause immediate desire."
     },
@@ -34,6 +57,23 @@ export const TRANSLATIONS = {
   pt: {
     nav: {
       letsTalk: "Fazer Pedido",
+      work: "Trabalhos",
+      about: "O Especialista",
+      contact: "Falar com o Chef"
+    },
+    common: {
+      secretSauce: "O Molho Secreto",
+      expertiseLabel: "Expertise",
+      motionArt: "Motion Art",
+      premiumVisuals: "Premium Visuals",
+      est: "EST. 2024 • Gastronomic Branding",
+      exploreMenu: "Explore o menu \nde projetos",
+      juiciness: "Suculência",
+      design: "Design",
+      conversion: "Conversão",
+      appetiteAppeal: "Appetite Appeal",
+      branding: "Branding",
+      digitalMenu: "Cardápio Digital"
     },
     hero: {
       titleLine1: "Designs",
@@ -41,9 +81,15 @@ export const TRANSLATIONS = {
       titleSpan: "fome.",
       description: "Especialista em posts de Appetite Appeal e cardápios digitais para estabelecimentos gastronômicos. Transformo pixels em suculência para converter seus seguidores em clientes famintos.",
       viewProjects: "Ver o Menu",
-      downloadCv: "Meus Serviços"
+      definitionTitle: "O que é?",
+      definitionText: "Appetite Appeal é a técnica de transformar uma simples foto em um gatilho de desejo imediato, convertendo o olhar do seguidor em faturamento real."
+    },
+    floating: {
+      titleLine1: "Não vendemos apenas artes,",
+      titleLine2: "vendemos fome à primeira vista."
     },
     work: {
+      sectionLabel: "Nosso Menu",
       title: "Saindo da Chapa",
       subtitle: "Uma seleção de artes pensadas para causar desejo imediato."
     },

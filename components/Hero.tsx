@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
               className="inline-flex items-center gap-2 bg-white border border-orange-100 text-accent px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest mb-8 shadow-sm"
             >
               <Star size={12} fill="currentColor" />
-              EST. 2024 • Gastronomic Branding
+              {t.common.est}
             </motion.div>
 
             <motion.h1
@@ -93,8 +93,8 @@ const Hero: React.FC = () => {
               >
                 {t.hero.viewProjects}
               </Button>
-              <div className="flex items-center gap-5 text-neutral-400 font-bold uppercase tracking-widest text-[10px] border-l-2 border-neutral-200 pl-6 leading-relaxed">
-                Explore o menu <br/> de projetos
+              <div className="flex items-center gap-5 text-neutral-400 font-bold uppercase tracking-widest text-[10px] border-l-2 border-neutral-200 pl-6 leading-relaxed whitespace-pre-line">
+                {t.common.exploreMenu}
               </div>
             </motion.div>
           </div>
@@ -137,18 +137,18 @@ const Hero: React.FC = () => {
                 <div className="bg-accent p-2 rounded-xl">
                   <Play size={16} fill="currentColor" className="text-white ml-0.5" />
                 </div>
-                <span className="text-[11px] font-black uppercase tracking-[0.3em]">Motion Art</span>
+                <span className="text-[11px] font-black uppercase tracking-[0.3em]">{t.common.motionArt}</span>
               </motion.div>
 
               <motion.div 
                 animate={{ y: [20, -20, 20], rotate: [0, -3, 0] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-4 z-30 bg-white px-8 py-5 rounded-[1.5rem] shadow-2xl border border-neutral-50 flex items-center gap-4"
+                className="absolute -bottom-6 -left-10 z-30 bg-white px-8 py-5 rounded-[1.5rem] shadow-2xl border border-neutral-50 flex items-center gap-4"
               >
                 <div className="bg-orange-50 text-accent p-2 rounded-xl">
                   <Award size={20} />
                 </div>
-                <span className="text-[11px] font-black uppercase tracking-[0.3em] text-neutral-800">Premium Visuals</span>
+                <span className="text-[11px] font-black uppercase tracking-[0.3em] text-neutral-800">{t.common.premiumVisuals}</span>
               </motion.div>
 
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-accent/[0.05] blur-[140px] rounded-full pointer-events-none" />

@@ -85,7 +85,7 @@ const BentoGrid: React.FC = () => {
           >
             <div className="w-8 h-[2px] bg-accent" />
             <span className="text-accent font-black uppercase tracking-[0.3em] text-[9px]">
-              Our Menu
+              {t.work.sectionLabel}
             </span>
           </motion.div>
           <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tighter mb-4 text-foreground leading-none">
