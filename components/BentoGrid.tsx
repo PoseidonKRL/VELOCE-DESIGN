@@ -1,0 +1,109 @@
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Star } from 'lucide-react';
+import { PROJECTS } from '../constants';
+import { Project } from '../types';
+import { useLanguage } from '../context/LanguageContext';
+
+const BentoCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
+  const { language } = useLanguage();
+  
+  const sizeClasses = {
+    small: "md:col-span-1 md:row-span-1",
+    medium: "md:col-span-2 md:row-span-1",
+    large: "md:col-span-2 md:row-span-2",
+    tall: "md:col-span-1 md:row-span-2",
+  };
+
+  const category = project.category[language];
+  const isAppetiteAppeal = category.toLowerCase().includes("appetite appeal");
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.05 }}
+      className={`group relative overflow-hidden rounded-[2rem] bg-neutral-900 border border-neutral-800 shadow-food ${sizeClasses[project.size]} transition-all duration-500 min-h-[280px]`}
+    >
+      <div className="relative h-full w-full overflow-hidden">
+        {project.badge && (
+          <div className="absolute top-5 left-5 z-30 pointer-events-none">
+            <div className="bg-accent text-white px-3 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-widest shadow-2xl border border-white/20 backdrop-blur-md">
+              {project.badge[language]}
+            </div>
+          </div>
+        )}
+
+        <motion.img
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.8 }}
+          src={project.image}
+          alt={project.title[language]}
+          className="h-full w-full object-cover opacity-90 group-hover:opacity-100 transition-all"
+        />
+        
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 z-10" />
+        
+        <div className="absolute inset-0 p-6 flex flex-col justify-end z-20">
+          <div className="flex justify-between items-end gap-4">
+            <div className="flex-1 min-w-0">
+              <span className={`px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-widest mb-2 inline-block border transition-colors ${
+                isAppetiteAppeal 
+                  ? 'bg-accent text-white border-accent shadow-sm rotate-[-1deg]' 
+                  : 'bg-white/10 backdrop-blur-xl text-white border-white/10'
+              }`}>
+                {category}
+              </span>
+              <h3 className="text-white font-display text-2xl font-bold tracking-tight mb-1">
+                {project.title[language]}
+              </h3>
+            </div>
+            
+            <div className="shrink-0 bg-white text-neutral-900 w-10 h-10 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-all shadow-xl">
+              <ArrowUpRight size={20} strokeWidth={3} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const BentoGrid: React.FC = () => {
+  const { t } = useLanguage();
+
+  return (
+    <section id="work" className="pb-24 pt-12 relative overflow-hidden">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="max-w-2xl mb-16 relative z-30">
+          <motion.div 
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-3 mb-4"
+          >
+            <div className="w-8 h-[2px] bg-accent" />
+            <span className="text-accent font-black uppercase tracking-[0.3em] text-[9px]">
+              Our Menu
+            </span>
+          </motion.div>
+          <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tighter mb-4 text-foreground leading-none">
+            {t.work.title}
+          </h2>
+          <p className="text-neutral-500 text-lg font-medium max-w-md">
+            {t.work.subtitle}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[280px] md:auto-rows-[320px] gap-6 grid-flow-dense relative z-30">
+          {PROJECTS.map((project, index) => (
+            <BentoCard key={project.id} project={project} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default BentoGrid;
