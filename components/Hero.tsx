@@ -24,8 +24,8 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative h-screen min-h-[800px] flex items-center overflow-hidden pt-24 md:pt-0">
-      {/* Texto de Fundo Gigante (Watermark) - Restaurado para desktop original */}
+    <section className="relative min-h-[700px] md:h-screen md:min-h-[800px] flex items-center overflow-hidden pt-32 pb-12 md:py-0">
+      {/* Texto de Fundo Gigante (Watermark) */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden">
         <motion.span 
           style={{ y: yWatermark, opacity: opacityWatermark }}
@@ -39,14 +39,13 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-12 items-center">
           
-          {/* Lado Esquerdo: Conteúdo */}
           <div className="lg:col-span-7 text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 bg-white border border-orange-100 text-accent px-4 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest mb-6 md:shadow-sm"
+              className="inline-flex items-center gap-2 bg-white border border-orange-100 text-accent px-4 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest mb-6"
             >
               <Star size={10} fill="currentColor" />
               {t.common.est}
@@ -56,10 +55,10 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="font-display text-5xl sm:text-6xl md:text-8xl lg:text-[6.5rem] font-extrabold tracking-tight text-foreground leading-[0.95] md:leading-[0.9] mb-6 md:mb-8"
+              className="font-display text-5xl sm:text-6xl md:text-8xl lg:text-[6.5rem] font-extrabold tracking-tight text-foreground leading-[0.95] mb-6 md:mb-8"
             >
               {t.hero.titleLine1} <br className="hidden md:block" />
-              <span className="text-accent italic font-light font-sans tracking-tighter mr-2 md:mr-4 opacity-20 md:opacity-10">/</span>
+              <span className="text-accent italic font-light font-sans tracking-tighter mr-2 opacity-20 md:opacity-10">/</span>
               {t.hero.titleLine2} <br className="hidden md:block" />
               <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-accent to-red-600">
                 {t.hero.titleSpan}
@@ -92,20 +91,19 @@ const Hero: React.FC = () => {
               >
                 {t.hero.viewProjects}
               </Button>
-              <div className="flex items-center gap-4 text-neutral-400 font-bold uppercase tracking-widest text-[9px] border-none sm:border-l-2 border-neutral-200 pl-0 sm:pl-6 leading-relaxed text-center sm:text-left">
+              <div className="flex items-center gap-4 text-neutral-400 font-bold uppercase tracking-widest text-[9px] sm:border-l-2 border-neutral-200 pl-0 sm:pl-6 leading-relaxed">
                 {t.common.exploreMenu}
               </div>
             </motion.div>
           </div>
 
-          {/* Lado Direito: Composição Visual */}
-          <div className="lg:col-span-5 relative mt-8 lg:mt-0">
-            <div className="relative p-4 md:p-12">
+          <div className="lg:col-span-5 relative">
+            <div className="relative p-6 md:p-12">
               
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="relative bg-white p-3 md:p-5 rounded-[2.5rem] md:rounded-[4rem] shadow-xl md:shadow-[0_60px_120px_-30px_rgba(0,0,0,0.18)] border border-white z-10"
+                className="relative bg-white p-3 md:p-5 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl border border-white z-10"
               >
                 <div className="overflow-hidden rounded-[2rem] md:rounded-[3rem]">
                   <motion.img 
@@ -117,11 +115,11 @@ const Hero: React.FC = () => {
                 </div>
               </motion.div>
 
-              {/* Badges Otimizados para Mobile e Desktop */}
+              {/* Badges - Posicionamento mobile corrigido para evitar clipping */}
               <motion.div
                 animate={{ y: [-5, 5, -5] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-2 -right-2 md:-top-4 md:-right-6 z-30 bg-neutral-900 text-white px-4 py-3 md:px-8 md:py-5 rounded-xl md:rounded-[1.5rem] flex items-center gap-2 md:gap-4 shadow-xl"
+                className="absolute top-0 right-0 md:-top-4 md:-right-6 z-30 bg-neutral-900 text-white px-4 py-3 md:px-8 md:py-5 rounded-xl md:rounded-[1.5rem] flex items-center gap-2 md:gap-4 shadow-xl"
               >
                 <div className="bg-accent p-1.5 md:p-2 rounded-lg">
                   <Play size={12} fill="currentColor" className="text-white ml-0.5" />
@@ -132,10 +130,10 @@ const Hero: React.FC = () => {
               <motion.div 
                 animate={{ y: [5, -5, 5] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-2 -left-2 md:-bottom-6 md:-left-10 z-30 bg-white px-4 py-3 md:px-8 md:py-5 rounded-xl md:rounded-[1.5rem] shadow-xl border border-neutral-50 flex items-center gap-2 md:gap-4"
+                className="absolute bottom-0 left-0 md:-bottom-6 md:-left-10 z-30 bg-white px-4 py-3 md:px-8 md:py-5 rounded-xl md:rounded-[1.5rem] shadow-xl border border-orange-50 flex items-center gap-2 md:gap-4"
               >
                 <div className="bg-orange-50 text-accent p-1.5 md:p-2 rounded-lg">
-                  <Award size={14} md:size={20} />
+                  <Award className="w-3.5 h-3.5 md:w-5 md:h-5" />
                 </div>
                 <span className="text-[9px] md:text-[11px] font-black uppercase tracking-widest md:tracking-[0.3em] text-neutral-800">{t.common.premiumVisuals}</span>
               </motion.div>
