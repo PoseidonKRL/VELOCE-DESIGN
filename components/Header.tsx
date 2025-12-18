@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X, Instagram, MessageCircle, Utensils } from 'lucide-react';
-import { NAV_ITEMS } from '../constants';
+import { NAV_ITEMS, SOCIAL_LINKS } from '../constants';
 import Button from './Button';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -11,6 +11,9 @@ const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const { language, toggleLanguage, t } = useLanguage();
+
+  const instaLink = SOCIAL_LINKS.find(l => l.name === "Instagram")?.url || "#";
+  const whatsappLink = SOCIAL_LINKS.find(l => l.name === "WhatsApp")?.url || "#";
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 80);
@@ -94,7 +97,7 @@ const Header: React.FC = () => {
         </motion.header>
       </div>
 
-      {/* Overlay do Menu Mobile - Movido para fora para evitar bugs de clipping */}
+      {/* Overlay do Menu Mobile - Movido para fora para evitar bugs de clipping vistos no screenshot */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -138,10 +141,10 @@ const Header: React.FC = () => {
             <div className="p-10 border-t border-orange-100 bg-white/40 backdrop-blur-md relative z-10">
               <div className="flex justify-between items-center mb-8">
                 <div className="flex gap-6">
-                  <a href="#" className="p-3 bg-white rounded-xl shadow-sm border border-orange-50 text-accent">
+                  <a href={instaLink} target="_blank" rel="noopener noreferrer" className="p-3 bg-white rounded-xl shadow-sm border border-orange-50 text-accent hover:scale-110 transition-transform">
                     <Instagram size={22} />
                   </a>
-                  <a href="#" className="p-3 bg-white rounded-xl shadow-sm border border-orange-50 text-accent">
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="p-3 bg-white rounded-xl shadow-sm border border-orange-50 text-accent hover:scale-110 transition-transform">
                     <MessageCircle size={22} />
                   </a>
                 </div>

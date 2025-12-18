@@ -66,7 +66,7 @@ export const SKILLS: Skill[] = [
 ];
 
 export const SOCIAL_LINKS = [
-  { name: "Instagram", url: "#" },
-  { name: "WhatsApp", url: "#" },
+  { name: "Instagram", url: "https://www.instagram.com/velocedesign/" },
+  { name: "WhatsApp", url: "https://wa.me/seunumerodetelefone" },
   { name: "Behance", url: "#" },
 ];
